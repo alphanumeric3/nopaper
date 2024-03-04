@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css"/>
+		<title>printer status</title>
+	</head>
+	<body>
+		<header>
+			<h1 id="title">Status</h1>
+			<p id="last-update">Last updated: {{ ts }}</p>
+		</header>
+		{% for printer in printers %}
+		<div class="printer {{ status_list[printer] }}">
+			{# sorry if that looks ugly, lol #}
+			<h2 class="name">{{ symbols[status_list[printer]] }} {{ printer }}</h2>
+			<ul>
+				{% for msg in msg_list[printer] %}
+				{# and this as well #}
+				<li class="message">{{ symbols[msg["type"]] }} {{ msg["message"] }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endfor %}
+	</body>
+</html>
