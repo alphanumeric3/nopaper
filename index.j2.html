@@ -3,12 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css"/>
-		<title>printer status</title>
+		<title>Printer Status</title>
+		<script type="text/javascript">
+		// automatic refresh. this is only temporary, i swear!
+		setTimeout(
+			()=>{ window.location = window.location },
+			1000*5
+		)
+		</script>
 	</head>
 	<body>
 		<header>
-			<h1 id="title">Status</h1>
-			<p id="last-update">Last updated: {{ ts }}</p>
+			<h1 id="title">Printer Status</h1>
+			<h3 id="last-update">Last updated: {{ ts }}</h3>
 		</header>
 		{% for printer in printers %}
 		<div class="printer {{ status_list[printer] }}">
@@ -17,7 +24,7 @@
 			<ul>
 				{% for msg in msg_list[printer] %}
 				{# and this as well #}
-				<li class="message">{{ symbols[msg["type"]] }} {{ msg["message"] }}</li>
+				<li>{{ symbols[msg["type"]] }} {{ msg["msg"] }}</li>
 				{% endfor %}
 			</ul>
 		</div>

@@ -30,7 +30,7 @@ header h1 {
 	border-left: var(--border-size) solid gray;
 }
 
-.information {
+.notification, .message {
 	border-left: var(--border-size) solid green;
 }
 
