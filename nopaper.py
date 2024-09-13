@@ -22,7 +22,9 @@ env = Environment(
 
 # load the list of printers
 with open("printers.json", "r") as file:
-    printers = json.load(file)
+    settings = json.load(file)
+    printers = settings["printers"]
+    tls_verify = settings["verify"]
 
 # variables for jinja2 to reference. each printer gets an entry for its name
 successful_printers = [] # printers that responded properly
@@ -38,7 +40,7 @@ for printer in printers:
         # have self-signed certificates!
         response = requests.get(
             f"https://{ip}/hp/device/MessageCenter/Summary",
-            verify=False,
+            verify=tls_verify,
             timeout=2
         )
         # add it to the successful list
