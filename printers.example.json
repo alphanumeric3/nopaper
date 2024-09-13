@@ -1,5 +1,8 @@
 {
-	"name of your printer": {
-		"ip": "127.0.97.51"
+	"verify": false,
+	"printers": {
+		"name of your printer": {
+			"ip": "127.0.97.51"
+		}
 	}
 }
