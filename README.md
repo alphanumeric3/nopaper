@@ -14,7 +14,7 @@ This script uses `jinja2` and `requests`.
 Copy `printers.example.json` to `printers.json`, and add printers.
 
 **THIS SCRIPT ACCEPTS SELF SIGNED CERTS!** If your printers have proper certificates,
-set `verify` to `true` `in printers.json`.
+set `verify` to `true` in `printers.json`.
 
 Then run the script. It will check each one then write to `index.html` in the
 current directory.
